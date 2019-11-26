@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D body;
     //private Animator animator;
+
+    private Vector3 startPos;
+
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
@@ -44,6 +47,9 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         
+
+        startPos = transform.position;
+
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
 
@@ -68,6 +74,8 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
 
         CheckIfWallSliding();
+        
+        ResetPlayer();
 
     }
 
@@ -205,6 +213,15 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+    }
+
+    void ResetPlayer()
+    {
+        if (transform.position.y <= -4.87)
+        {
+            transform.position = startPos;
+            body.velocity = Vector2.zero;
+        }
     }
     
     private void OnDrawGizmos()

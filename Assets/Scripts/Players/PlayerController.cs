@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour
         if (isPausing)
         {
             body.velocity = Vector2.zero;
+            
+            isWalking = false;
+
+            isGrounded = true;
+            
+            UpdateAnimations();
             return;
         }
         else

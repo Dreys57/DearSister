@@ -39,6 +39,13 @@ public class PlayerController : MonoBehaviour
     private bool canJump;
     private bool isTouchingWall;
     private bool isWallSliding;
+    private bool isPausing;
+
+    public bool IsPausing
+    {
+        get => isPausing;
+        set => isPausing = value;
+    }
 
 
     // Start is called before the first frame update
@@ -57,25 +64,41 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyMovement();
-        
-        CheckSurroundings();
+        if (isPausing)
+        {
+            body.velocity = Vector2.zero;
+            return;
+        }
+        else
+        {
+            ApplyMovement();
+
+            CheckSurroundings();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        if (isPausing)
+        {
+            body.velocity = Vector2.zero;
+            return;
+        }
+        else
+        {
+            CheckInput();
 
-        CheckMovementDirection();
-        
-        //UpdateAnimations();
-        
-        CheckIfCanJump();
+            CheckMovementDirection();
 
-        CheckIfWallSliding();
-        
-        ResetPlayer();
+            //UpdateAnimations();
+
+            CheckIfCanJump();
+
+            CheckIfWallSliding();
+
+            ResetPlayer();
+        }
 
     }
 

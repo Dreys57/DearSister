@@ -6,23 +6,30 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
-    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
+    [SerializeField] private PlayerController player;
+
+    [SerializeField] private GameObject[] memories;
+
     private Queue<string> sentences;
+
+    private Canvas dialogueCanvas;
     
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+
+        dialogueCanvas = GetComponentInChildren<Canvas>();
+
     }
 
     public void StartDialogue(SO_Dialogue dialogue)
     {
-        sentences.Clear();
+        dialogueCanvas.enabled = true;
 
-        nameText.text = dialogue.Name;
+        sentences.Clear();
 
         foreach (string sentence in dialogue.Sentences)
         {
@@ -46,7 +53,15 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        int i = 0;
         
+        Destroy(memories[0]);
+        
+        player.IsPausing = false;
+
+        dialogueCanvas.enabled = false;
+
+
     }
 
     IEnumerator TypeSentence(string sentence)

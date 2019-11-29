@@ -10,37 +10,41 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private PlayerController player;
 
-    [SerializeField] private GameObject[] memories;
-
     private Queue<string> sentences;
-
-    private Canvas dialogueCanvas;
     
+    private Canvas dialogueCanvas;
+
+    public Queue<string> Sentences => sentences;
+
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
 
         dialogueCanvas = GetComponentInChildren<Canvas>();
+        
+        dialogueCanvas.gameObject.SetActive(false);
 
     }
 
     public void StartDialogue(SO_Dialogue dialogue)
     {
-        dialogueCanvas.enabled = true;
-
-        sentences.Clear();
+        dialogueCanvas.gameObject.SetActive(true);
 
         foreach (string sentence in dialogue.Sentences)
         {
             sentences.Enqueue(sentence);
         }
+        
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
+            sentences.Clear();
             EndDialogue();
             return;
         }
@@ -53,15 +57,11 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        int i = 0;
-        
-        Destroy(memories[0]);
-        
         player.IsPausing = false;
 
-        dialogueCanvas.enabled = false;
+        dialogueCanvas.gameObject.SetActive(false);
 
-
+        Debug.Log("Ici");
     }
 
     IEnumerator TypeSentence(string sentence)

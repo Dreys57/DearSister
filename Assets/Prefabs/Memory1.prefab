@@ -180,4 +180,3 @@ MonoBehaviour:
     - "Lucas:\n\nI\u2026"
   dialogueManager: {fileID: 0}
   player: {fileID: 0}
-  dialogueCanvas: {fileID: 0}

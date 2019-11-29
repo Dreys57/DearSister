@@ -18,9 +18,19 @@ public class DialogueTrigger : MonoBehaviour
 
    private void OnTriggerEnter2D(Collider2D other)
    {
-      player.IsPausing = true;
+      if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+      {
+         player.IsPausing = true;
 
-      TriggerDialogue();
-      
+         TriggerDialogue();
+      }
+   }
+
+   private void OnTriggerExit2D(Collider2D other)
+   {
+      if (dialogueManager.Sentences.Count == 0)
+      {
+         Destroy(this.gameObject);
+      }
    }
 }

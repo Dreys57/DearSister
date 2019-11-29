@@ -23,9 +23,6 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
 
         dialogueCanvas = GetComponentInChildren<Canvas>();
-        
-        dialogueCanvas.gameObject.SetActive(false);
-
     }
 
     public void StartDialogue(SO_Dialogue dialogue)

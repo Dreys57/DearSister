@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D body;
-    //private Animator animator;
+    private Animator animator;
 
     private Vector3 startPos;
 
@@ -47,12 +47,11 @@ public class PlayerController : MonoBehaviour
         set => isPausing = value;
     }
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         
 
         startPos = transform.position;
@@ -76,8 +75,7 @@ public class PlayerController : MonoBehaviour
             CheckSurroundings();
         }
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isPausing)
@@ -91,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
             CheckMovementDirection();
 
-            //UpdateAnimations();
+            UpdateAnimations();
 
             CheckIfCanJump();
 
@@ -193,12 +191,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private void UpdateAnimations()
+    private void UpdateAnimations()
     {
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("yVelocity", body.velocity.y);
-    }*/
+    }
 
     void CheckMovementDirection()
     {
@@ -211,7 +209,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (body.velocity.x != 0)
+        if (Mathf.Abs(body.velocity.x) >= 0.1f)
         {
             isWalking = true;
         }

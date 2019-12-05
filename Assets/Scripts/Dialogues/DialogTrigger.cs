@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogTrigger : MonoBehaviour
 {
-   [SerializeField] private SO_Dialogue dialogue;
+   [SerializeField] private Dialog dialogue;
 
-   [SerializeField] private DialogueManager dialogueManager;
+   [SerializeField] private DialogManager dialogueManager;
 
    [SerializeField] private PlayerController player;
 

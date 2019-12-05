@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SO_Dialogue
+public class Dialog
 {
     [TextArea(3, 10)]
     [SerializeField] private string[] sentences;

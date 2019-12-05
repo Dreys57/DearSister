@@ -8,15 +8,16 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Dialogues" t="Include">
-            <e p="DialogueManager.cs" t="Include" />
-            <e p="DialogueTrigger.cs" t="Include" />
-            <e p="SO_Dialogue.cs" t="Include" />
+            <e p="Dialog.cs" t="Include" />
+            <e p="DialogManager.cs" t="Include" />
+            <e p="DialogTrigger.cs" t="Include" />
           </e>
           <e p="EndGameTrigger.cs" t="Include" />
           <e p="Menus" t="Include">
             <e p="MainMenuManager.cs" t="Include" />
+            <e p="PauseMenuManager.cs" t="Include" />
           </e>
-          <e p="Players" t="Include">
+          <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />
           </e>
         </e>

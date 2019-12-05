@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         
-
         startPos = transform.position;
 
         wallHopDirection.Normalize();

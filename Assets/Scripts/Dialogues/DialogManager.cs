@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
 
@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
         dialogueCanvas.gameObject.SetActive(false);
     }
 
-    public void StartDialogue(SO_Dialogue dialogue)
+    public void StartDialogue(Dialog dialogue)
     {
         dialogueCanvas.gameObject.SetActive(true);
 

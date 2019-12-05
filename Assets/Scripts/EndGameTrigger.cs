@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGameTrigger : MonoBehaviour
 {
-    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] private DialogManager dialogueManager;
 
     private bool hasStartedFinalDalog = false;
 

@@ -683,6 +683,7 @@ MonoBehaviour:
 
 
       Farewell, Lucas.'
+    - 
   dialogueManager: {fileID: 1421999166}
   player: {fileID: 1350191569}
 --- !u!61 &312383193

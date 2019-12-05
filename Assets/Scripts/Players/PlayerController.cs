@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             
             UpdateAnimations();
+            
             return;
         }
         else

@@ -14,6 +14,8 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField] private GameObject dialogPanel;
 
+    [SerializeField] private AudioManager audioManager;
+
     public Queue<string> Sentences => sentences;
 
 
@@ -21,8 +23,6 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-
-        
         
         dialogPanel.SetActive(false);
     }
@@ -32,6 +32,9 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(true);
 
         player.IsInDialog = true;
+        
+        audioManager.PlaySound("MemoriesMusic");
+        audioManager.ForceStop("Ambient");
 
         foreach (string sentence in dialogue.Sentences)
         {
@@ -61,6 +64,9 @@ public class DialogManager : MonoBehaviour
         player.IsInDialog = false;
 
         dialogPanel.SetActive(false);
+        
+        audioManager.PlaySound("Ambient");
+        audioManager.ForceStop("MemoriesMusic");
     }
 
     IEnumerator TypeSentence(string sentence)

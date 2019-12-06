@@ -106,11 +106,11 @@ public class PlayerController : MonoBehaviour
 
             ResetPlayer();
 
-            if (isWalking)
+            if (isWalking && isGrounded)
             {
                 audioManager.PlaySound("PlayerRun");
             }
-            else if (!isWalking)
+            else if (!isWalking || !isGrounded)
             {
                 audioManager.ForceStop("PlayerRun");
             }

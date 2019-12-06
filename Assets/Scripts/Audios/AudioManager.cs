@@ -7,27 +7,9 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Sound[] sounds;
-    
-    //instance for AudioManager to have only one in every scene
-    public static AudioManager instance;
-    
+
     void Awake()
     {
-        
-        //destroy audio manager if there is already one
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
-        DontDestroyOnLoad(gameObject);
-        
-        
         foreach (Sound s in sounds)
         {
             s.Source = gameObject.AddComponent<AudioSource>();

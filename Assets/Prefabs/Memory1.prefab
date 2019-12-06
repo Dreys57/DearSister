@@ -235,3 +235,4 @@ MonoBehaviour:
 
       Go upward for the next Memory.'
   dialogueManager: {fileID: 0}
+  audioManager: {fileID: 0}

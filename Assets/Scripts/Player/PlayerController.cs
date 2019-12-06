@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         set => isPausing = value;
     }
 
-    
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();

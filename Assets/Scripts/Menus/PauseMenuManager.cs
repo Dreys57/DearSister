@@ -5,45 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    [SerializeField] private Canvas pauseMenu;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] private GameObject pauseMenu;
+ 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (pauseMenu.gameObject.activeSelf)
+            if (pauseMenu.activeSelf)
             {
-                DesactivateMenuPause();
+                DisableMenuPause();
             }
             else
             {
-                ActivateMenuPause();
+                EnableMenuPause();
             }
         }
         
         
     }
     
-    public void DesactivateMenuPause()
+    public void DisableMenuPause()
     {
-        pauseMenu.gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
+        
         Time.timeScale = 1;
     }
 
-    public void ActivateMenuPause()
+    public void EnableMenuPause()
     {
-        pauseMenu.gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
+        
         Time.timeScale = 0;
     }
 
     public void ReturnToMainMenu()
     {
+        Time.timeScale = 1;
+        
         SceneManager.LoadScene("MainMenu");
+        
     }
 }

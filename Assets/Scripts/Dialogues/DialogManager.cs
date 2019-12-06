@@ -11,8 +11,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private PlayerController player;
 
     private Queue<string> sentences;
-    
-    private Canvas dialogueCanvas;
+
+    [SerializeField] private GameObject dialogPanel;
 
     public Queue<string> Sentences => sentences;
 
@@ -22,14 +22,14 @@ public class DialogManager : MonoBehaviour
     {
         sentences = new Queue<string>();
 
-        dialogueCanvas = GetComponentInChildren<Canvas>();
         
-        dialogueCanvas.gameObject.SetActive(false);
+        
+        dialogPanel.SetActive(false);
     }
 
     public void StartDialogue(Dialog dialogue)
     {
-        dialogueCanvas.gameObject.SetActive(true);
+        dialogPanel.SetActive(true);
 
         foreach (string sentence in dialogue.Sentences)
         {
@@ -58,9 +58,7 @@ public class DialogManager : MonoBehaviour
     {
         player.IsPausing = false;
 
-        dialogueCanvas.gameObject.SetActive(false);
-
-        Debug.Log("Ici");
+        dialogPanel.SetActive(false);
     }
 
     IEnumerator TypeSentence(string sentence)

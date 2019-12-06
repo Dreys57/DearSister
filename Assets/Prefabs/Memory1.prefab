@@ -155,6 +155,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
+    - "Lucas:\n\nWhat\u2019s this? It feels weird."
+    - "???:\n\nIt\u2019s a memory."
+    - 'Lucas:
+
+
+      Of what?'
+    - '???:
+
+
+      An event of ou...your past.'
+    - "Lucas:\n\nI don\u2019t like where this is going\u2026"
+    - '???:
+
+
+      Too late. Here it goes.'
+    - "\n\n\t*Memory 1 starting*"
     - "Lucas :\n\nWhat\u2019s with your eye?"
     - 'Lily:
 
@@ -170,7 +186,7 @@ MonoBehaviour:
     - 'Lily:
 
 
-      I TOLD YOU TO LEAVE ME ALONE'
+      I TOLD YOU TO LEAVE ME ALONE!'
     - 'Lucas :
 
 
@@ -178,5 +194,44 @@ MonoBehaviour:
     - "Lily:\n\nYou don\u2019t, you just want to feel good by protecting me and beating
       someone up."
     - "Lucas:\n\nI\u2026"
+    - "\n\n\t*End of Memory 1*"
+    - 'Lucas:
+
+
+      Why would you show me this?'
+    - "???:\n\nBecause you\u2019ve buried it. You need to remember."
+    - "Lucas:\n\nI don\u2019t want to. I don\u2019t want to remember\u2026her."
+    - '???:
+
+
+      Keep going.'
+    - 'Lucas:
+
+
+      No.'
+    - '???:
+
+
+      I just want to help you.'
+    - 'Lucas:
+
+
+      By making me relive the worst parts of my life?'
+    - '???:
+
+
+      To heal you need to suffer.'
+    - "Lucas:\n\nI don\u2019t have a choice, do I?"
+    - '???:
+
+
+      Not really.'
+    - 'Lucas:
+
+
+      Fine.'
+    - '???:
+
+
+      Go upward for the next Memory.'
   dialogueManager: {fileID: 0}
-  player: {fileID: 0}

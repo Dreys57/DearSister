@@ -204,7 +204,7 @@ Transform:
   - {fileID: 1975636210}
   - {fileID: 1379276080}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65633638
 MonoBehaviour:
@@ -444,7 +444,6 @@ MonoBehaviour:
 
       Fine.'
   dialogueManager: {fileID: 1421999166}
-  player: {fileID: 1350191569}
 --- !u!61 &174610855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -483,7 +482,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &218496682 stripped
 Transform:
@@ -970,7 +969,6 @@ MonoBehaviour:
       Farewell, Lucas.'
     - 
   dialogueManager: {fileID: 1421999166}
-  player: {fileID: 1350191569}
 --- !u!61 &312383193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1009,7 +1007,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &312383195
 MonoBehaviour:
@@ -1218,7 +1216,7 @@ Transform:
   - {fileID: 2064510563}
   - {fileID: 1769570750}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636000845
 GameObject:
@@ -1262,7 +1260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927106611
 GameObject:
@@ -1328,7 +1326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927690467
 GameObject:
@@ -2027,6 +2025,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713344816977f7f4aabefd1910029a21, type: 3}
+--- !u!1 &1296150178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296150180}
+  - component: {fileID: 1296150179}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296150179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296150178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581c7b67f0e413e459726b837557e856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerRun
+    clip: {fileID: 8300000, guid: 4e8cb0e688969c64383b401b75b382e7, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 8277789adae25eb4cb75293febce2580, type: 3}
+    volume: 0.3
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: Ambient
+    clip: {fileID: 8300000, guid: b295fd87b215eb540a7b100b2d20b4d5, type: 3}
+    volume: 0.07
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &1296150180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296150178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1350191569 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4982858932236512542, guid: 302042c199886594296be54e0ada912e,
@@ -2138,7 +2198,7 @@ RectTransform:
   - {fileID: 1514865537}
   - {fileID: 581048487}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2269,7 +2329,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514865536
 GameObject:
@@ -2730,7 +2790,7 @@ Transform:
   m_Children:
   - {fileID: 524184761}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1769570750 stripped
 Transform:
@@ -3495,214 +3555,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
         type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1421999166}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1350191569}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[9]
-      value: "Lucas :\n\nDon\u2019t hide your face, let me see\u2026Oh god, who did
-        this to you?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[10]
-      value: 'Lily:
-
-
-        No one. Leave me alone.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[11]
-      value: "Lucas :\n\nI\u2019m gonna kick their asses. Tell me who it is!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[12]
-      value: 'Lily:
-
-
-        I TOLD YOU TO LEAVE ME ALONE!'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[13]
-      value: 'Lucas :
-
-
-        Why are you acting like that? I just wanna help you!'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[14]
-      value: "Lily:\n\nYou don\u2019t, you just want to feel good by protecting me
-        and beating someone up."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[15]
-      value: "Lucas:\n\nI\u2026"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[16]
-      value: "\n\n\t*End of Memory 1*"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[17]
-      value: 'Lucas:
-
-
-        Why would you show me this?'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[18]
-      value: "???:\n\nBecause you\u2019ve buried it. You need to remember."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[19]
-      value: "Lucas:\n\nI don\u2019t want to. I don\u2019t want to remember\u2026her."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[20]
-      value: '???:
-
-
-        Keep going.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[21]
-      value: 'Lucas:
-
-
-        No.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[22]
-      value: '???:
-
-
-        I just want to help you.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[23]
-      value: 'Lucas:
-
-
-        By making me relive the worst parts of my life?'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[24]
-      value: '???:
-
-
-        To heal you need to suffer.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[25]
-      value: "Lucas:\n\nI don\u2019t have a choice, do I?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[26]
-      value: '???:
-
-
-        Not really.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[27]
-      value: 'Lucas:
-
-
-        Fine.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[7]
-      value: "Lucas :\n\nWhat\u2019s with your eye?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[6]
-      value: "\n\n\t*Memory 1 starting*"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[5]
-      value: '???:
-
-
-        Too late. Here it goes.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[4]
-      value: "Lucas:\n\nI don\u2019t like where this is going\u2026"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[3]
-      value: '???:
-
-
-        An event of ou...your past.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[2]
-      value: 'Lucas:
-
-
-        Of what?'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[1]
-      value: "???:\n\nIt\u2019s a memory."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[8]
-      value: 'Lily:
-
-
-        Nothing.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: "Lucas:\n\nWhat\u2019s this? It feels weird."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378807172270892184, guid: 713344816977f7f4aabefd1910029a21,
-        type: 3}
-      propertyPath: dialogue.sentences.Array.data[28]
-      value: '???:
-
-
-        Go upward for the next Memory.'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713344816977f7f4aabefd1910029a21, type: 3}
 --- !u!1001 &4982858931428435151
@@ -3721,7 +3576,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1296150179}
     - target: {fileID: 4982858932236512538, guid: 302042c199886594296be54e0ada912e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3760,7 +3615,7 @@ PrefabInstance:
     - target: {fileID: 4982858932236512538, guid: 302042c199886594296be54e0ada912e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4982858932236512538, guid: 302042c199886594296be54e0ada912e,
         type: 3}
@@ -3777,16 +3632,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1681588080, guid: 302042c199886594296be54e0ada912e, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681588080, guid: 302042c199886594296be54e0ada912e, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1681588080, guid: 302042c199886594296be54e0ada912e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 302042c199886594296be54e0ada912e, type: 3}
 --- !u!1001 &7204491022068485157
 PrefabInstance:
@@ -3838,7 +3684,7 @@ PrefabInstance:
     - target: {fileID: 7204491021399278934, guid: d055357ce104e74459f4f153f6bccc03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7204491021399278934, guid: d055357ce104e74459f4f153f6bccc03,
         type: 3}

@@ -31,6 +31,8 @@ public class DialogManager : MonoBehaviour
     {
         dialogPanel.SetActive(true);
 
+        player.IsInDialog = true;
+
         foreach (string sentence in dialogue.Sentences)
         {
             sentences.Enqueue(sentence);
@@ -56,7 +58,7 @@ public class DialogManager : MonoBehaviour
 
     void EndDialogue()
     {
-        player.IsPausing = false;
+        player.IsInDialog = false;
 
         dialogPanel.SetActive(false);
     }

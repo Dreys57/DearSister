@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private AudioManager audioManager;
 
     [SerializeField] private Vector2 wallHopDirection;
     [SerializeField] private Vector2 wallJumpDirection;
@@ -40,12 +41,12 @@ public class PlayerController : MonoBehaviour
     private bool canJump;
     private bool isTouchingWall;
     private bool isWallSliding;
-    private bool isPausing;
+    private bool isInDialog;
 
-    public bool IsPausing
+    public bool IsInDialog
     {
-        get => isPausing;
-        set => isPausing = value;
+        get => isInDialog;
+        set => isInDialog = value;
     }
 
 
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
         startPos = transform.position;
 
         wallHopDirection.Normalize();
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isPausing)
+        if (isInDialog)
         {
             body.velocity = Vector2.zero;
             return;
@@ -78,15 +79,16 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        if (isPausing)
+        if (isInDialog)
         {
-            body.velocity = Vector2.zero;
-            
             isWalking = false;
 
             isGrounded = true;
             
             UpdateAnimations();
+            
+            audioManager.ForceStop("PlayerRun");
+            audioManager.ForceStop("PlayerJump");
             
             return;
         }
@@ -103,6 +105,15 @@ public class PlayerController : MonoBehaviour
             CheckIfWallSliding();
 
             ResetPlayer();
+
+            if (isWalking)
+            {
+                audioManager.PlaySound("PlayerRun");
+            }
+            else if (!isWalking)
+            {
+                audioManager.ForceStop("PlayerRun");
+            }
         }
 
     }
@@ -114,6 +125,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+            
+            audioManager.PlaySound("PlayerJump");
         }
         if (Input.GetButtonUp("Jump"))
         {
@@ -251,7 +264,7 @@ public class PlayerController : MonoBehaviour
             body.velocity = Vector2.zero;
         }
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);

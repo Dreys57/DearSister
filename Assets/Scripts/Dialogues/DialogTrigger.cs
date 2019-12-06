@@ -9,8 +9,6 @@ public class DialogTrigger : MonoBehaviour
 
    [SerializeField] private DialogManager dialogueManager;
 
-   [SerializeField] private PlayerController player;
-
    public void TriggerDialogue()
    {
       dialogueManager.StartDialogue(dialogue);
@@ -20,8 +18,6 @@ public class DialogTrigger : MonoBehaviour
    {
       if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
       {
-         player.IsPausing = true;
-
          TriggerDialogue();
       }
    }

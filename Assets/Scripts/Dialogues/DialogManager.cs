@@ -15,7 +15,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private GameObject dialogPanel;
 
     [SerializeField] private AudioManager audioManager;
-
+    
+    [SerializeField] private GameObject interfacePanel;
     public Queue<string> Sentences => sentences;
 
 
@@ -30,6 +31,8 @@ public class DialogManager : MonoBehaviour
     public void StartDialogue(Dialog dialogue)
     {
         dialogPanel.SetActive(true);
+        
+        interfacePanel.SetActive(false);
 
         player.IsInDialog = true;
         
@@ -64,6 +67,8 @@ public class DialogManager : MonoBehaviour
         player.IsInDialog = false;
 
         dialogPanel.SetActive(false);
+
+        interfacePanel.SetActive(true);
         
         audioManager.PlaySound("Ambient");
         audioManager.ForceStop("MemoriesMusic");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Audio;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private TextMeshProUGUI memoriesCounter;
 
     [SerializeField] private Vector2 wallHopDirection;
     [SerializeField] private Vector2 wallJumpDirection;
@@ -31,9 +33,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallHopForce;
     [SerializeField] private float wallJumpForce;
     private float movementInputDirection;
+    private float fallLimit = -4.87f;
 
     private int facingDirection = 1;
-    
+    private int nbOfMemories = 0;
 
     private bool isFacingRight = true;
     private bool isWalking;
@@ -59,7 +62,6 @@ public class PlayerController : MonoBehaviour
 
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
-
     }
 
     void FixedUpdate()
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
             CheckSurroundings();
         }
     }
-    
+
     void Update()
     {
         if (isInDialog)
@@ -84,12 +86,12 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
 
             isGrounded = true;
-            
+
             UpdateAnimations();
-            
+
             audioManager.ForceStop("PlayerRun");
             audioManager.ForceStop("PlayerJump");
-            
+
             return;
         }
         else
@@ -114,8 +116,19 @@ public class PlayerController : MonoBehaviour
             {
                 audioManager.ForceStop("PlayerRun");
             }
-        }
 
+            memoriesCounter.text = nbOfMemories.ToString();
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Memories"))
+        {
+            startPos = transform.position;
+
+            nbOfMemories++;
+        }
     }
 
     private void CheckInput()
@@ -125,9 +138,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
-            
+
             audioManager.PlaySound("PlayerJump");
         }
+
         if (Input.GetButtonUp("Jump"))
         {
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * variableJumpHeightMultiplier);
@@ -138,7 +152,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && body.velocity.y < 0.1f || isWallSliding)
         {
-            
             canJump = true;
         }
         else
@@ -164,40 +177,40 @@ public class PlayerController : MonoBehaviour
         if (canJump && !isWallSliding)
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
-            
         }
         else if (isWallSliding && movementInputDirection == 0f && canJump) //Wall hop
         {
             isWallSliding = false;
-            Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
+            Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection,
+                wallHopForce * wallHopDirection.y);
             body.AddForce(forceToAdd, ForceMode2D.Impulse);
         }
-        else if((isWallSliding || isTouchingWall) && movementInputDirection != 0f && canJump)
+        else if ((isWallSliding || isTouchingWall) && movementInputDirection != 0f && canJump)
         {
             isWallSliding = false;
-            Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
+            Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection,
+                wallJumpForce * wallJumpDirection.y);
             body.AddForce(forceToAdd, ForceMode2D.Impulse);
         }
     }
 
     private void ApplyMovement()
     {
-
         if (isGrounded)
         {
             body.velocity = new Vector2(speed * movementInputDirection, body.velocity.y);
         }
-        else if(!isGrounded && !isWallSliding && movementInputDirection != 0)
+        else if (!isGrounded && !isWallSliding && movementInputDirection != 0)
         {
             Vector2 forceToAdd = new Vector2(movementForceInAir * movementInputDirection, 0);
             body.AddForce(forceToAdd);
 
-            if(Mathf.Abs(body.velocity.x) > speed)
+            if (Mathf.Abs(body.velocity.x) > speed)
             {
                 body.velocity = new Vector2(speed * movementInputDirection, body.velocity.y);
             }
         }
-        else if(!isGrounded && !isWallSliding && movementInputDirection == 0f)
+        else if (!isGrounded && !isWallSliding && movementInputDirection == 0f)
         {
             body.velocity = new Vector2(body.velocity.x * airDragMultiplier, body.velocity.y);
         }
@@ -206,7 +219,7 @@ public class PlayerController : MonoBehaviour
         {
             if (body.velocity.y < -wallSlidingSpeed)
             {
-                body.velocity = new Vector2(body.velocity.x, - wallSlidingSpeed);
+                body.velocity = new Vector2(body.velocity.x, -wallSlidingSpeed);
             }
         }
     }
@@ -258,7 +271,7 @@ public class PlayerController : MonoBehaviour
 
     void ResetPlayer()
     {
-        if (transform.position.y <= -4.87)
+        if (transform.position.y <= fallLimit)
         {
             transform.position = startPos;
             body.velocity = Vector2.zero;
@@ -268,7 +281,8 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        
-        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+
+        Gizmos.DrawLine(wallCheck.position,
+            new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
     }
 }

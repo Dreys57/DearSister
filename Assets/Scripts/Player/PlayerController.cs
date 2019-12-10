@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D body;
     private Animator animator;
+    private AudioManager audioManager;
 
     private Vector3 startPos;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private AudioManager audioManager;
     [SerializeField] private TextMeshProUGUI memoriesCounter;
 
     [SerializeField] private Vector2 wallHopDirection;
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         startPos = transform.position;
 

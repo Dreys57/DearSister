@@ -8,8 +8,21 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Sound[] sounds;
 
+    public static AudioManager instance;
+
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(gameObject);
+        
         foreach (Sound s in sounds)
         {
             s.Source = gameObject.AddComponent<AudioSource>();
@@ -18,13 +31,10 @@ public class AudioManager : MonoBehaviour
             s.Source.pitch = s.Pitch;
             s.Source.loop = s.Loop;
         }
-    }
-
-    private void Start()
-    {
+        
         PlaySound("Ambient");
     }
-
+    
     public void PlaySound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.Name == name);

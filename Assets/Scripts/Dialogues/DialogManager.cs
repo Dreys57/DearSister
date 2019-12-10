@@ -14,7 +14,7 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField] private GameObject dialogPanel;
 
-    [SerializeField] private AudioManager audioManager;
+    private AudioManager audioManager;
     
     [SerializeField] private GameObject interfacePanel;
     public Queue<string> Sentences => sentences;
@@ -24,6 +24,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        audioManager = FindObjectOfType<AudioManager>();
         
         dialogPanel.SetActive(false);
     }

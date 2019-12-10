@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+
+    [SerializeField] private GameObject interfacePanel;
  
     void Update()
     {
@@ -27,6 +29,7 @@ public class PauseMenuManager : MonoBehaviour
     public void DisableMenuPause()
     {
         pauseMenu.SetActive(false);
+        interfacePanel.SetActive(true);
         
         Time.timeScale = 1;
     }
@@ -34,6 +37,7 @@ public class PauseMenuManager : MonoBehaviour
     public void EnableMenuPause()
     {
         pauseMenu.SetActive(true);
+        interfacePanel.SetActive(false);
         
         Time.timeScale = 0;
     }

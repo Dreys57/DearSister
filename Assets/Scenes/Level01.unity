@@ -1414,6 +1414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 581048486}
+  interfacePanel: {fileID: 1821432559}
 --- !u!4 &636000847
 Transform:
   m_ObjectHideFlags: 0
@@ -2518,7 +2519,6 @@ MonoBehaviour:
   dialogueText: {fileID: 927690469}
   player: {fileID: 1350191569}
   dialogPanel: {fileID: 1514865536}
-  audioManager: {fileID: 1296150179}
   interfacePanel: {fileID: 1821432559}
 --- !u!4 &1421999167
 Transform:
